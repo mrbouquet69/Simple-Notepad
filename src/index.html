@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Notepad</title>
+
+  <!-- Favicon (centered emoji) -->
+  <link rel="icon" href='data:image/svg+xml,
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle" font-size="80">📝</text>
+  </svg>'>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    textarea {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      outline: none;
+      resize: none;
+      padding: 20px;
+      font-size: 16px;
+      background: #111;
+      color: #fff;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<textarea id="note"></textarea>
+
+<script>
+  const textarea = document.getElementById("note");
+
+  textarea.value = localStorage.getItem("notepadContent") || "";
+
+  textarea.addEventListener("input", () => {
+    localStorage.setItem("notepadContent", textarea.value);
+  });
+</script>
+
+</body>
+</html>
